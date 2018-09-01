@@ -33,7 +33,7 @@ static int current_cost_callback(bitbuffer_t *bitbuffer) {
 
     uint8_t *packet = packet_bits.bb[0];
     // Read data
-    if(packet_bits.bits_per_row[0] >= 56 && ((packet[0] & 0xf0) == 0) ){
+    if(packet_bits.bits_per_row[0] >= 56 && ((packet[0] & 0xf0) == 0xf0) ){
         uint16_t device_id = (packet[0] & 0x0f) << 8 | packet[1];
 
         uint16_t watt0 = (packet[2] & 0x7F) << 8 | packet[3] ;
